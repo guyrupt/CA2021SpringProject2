@@ -55,7 +55,7 @@ always@(posedge clk_i or posedge rst_i) begin
         end
     end
     if (enable_i && write_i) begin
-        // TODO: Handle your write of 2-way associative cache + LRU here
+        // 2-way associative cache + LRU
         if (~CPU_dirty) begin // if data comes from data memory
             if (lru[addr_i][0] == 0) begin
                 tag[addr_i][0] <= tag_i;
@@ -70,7 +70,7 @@ always@(posedge clk_i or posedge rst_i) begin
                 lru[addr_i][0] <= 1'b0;
             end
         end
-        else begin // if data is write by CPU, overwrite the origin block
+        else begin 
             if (tag[addr_i][0][24] && (tag[addr_i][0][22:0] == CPU_tag)) begin
                 tag[addr_i][0] <= tag_i;
                 data[addr_i][0] <= data_i;
@@ -88,7 +88,6 @@ always@(posedge clk_i or posedge rst_i) begin
 end
 
 // Read Data      
-// TODO: tag_o=? data_o=? hit_o=?
 //always @(posedge clk_i or posedge rst_i) begin
 always @(*) begin
     if (enable_i) begin //read hit in associate 0
