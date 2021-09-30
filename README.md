@@ -4,7 +4,7 @@
 
 ![](./img/SA.png)
 
-> (project 1)[https://github.com/guyrupt/Pipelined-CPU]
+> [Project 1](https://github.com/guyrupt/Pipelined-CPU)
 
 ### L1 Data Cache Specs
 
